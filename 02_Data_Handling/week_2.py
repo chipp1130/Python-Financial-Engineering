@@ -72,3 +72,42 @@ print(tickers)
 # Create a tuple storing stock prices (ticker, price).
 # Print the price of the second stock.
 # Try modifying a value (expect an error).
+
+stock_tuple = ("AAPL", 112.50, "BX", 235.13, "CVS", 73.96)
+print(stock_tuple[3])
+# stock_tuple["BX"] = "AMZN"
+
+# Exercise 3: Using Dictionaries for a Portfolio
+
+# Task:
+
+# Create a dictionary mapping tickers to share counts.
+# Print the total shares of a specific stock.
+# Add a new stock and remove one.
+# Use a loop to print all holdings.
+
+stock_portfolio = {
+    "AAPL": 1000,
+    "AMZN": 350,
+    "BX": 40,
+    "CVS": 300
+}
+print(stock_portfolio.get("AAPL", "Stock not found"))
+del stock_portfolio["AMZN"]
+stock_portfolio["XRP"] = 341.93
+for tickers, shares in stock_portfolio.items():
+    print(f"You own {shares} shares of {tickers}.")
+
+# You must use .items() to access both keys (tickers) and values (shares).
+
+# Recap & Reflection:
+
+# What did you find easy?
+# Today, I found the syntax and indenting more natural as I get used to Python.
+
+# Where did you struggle?
+# I am getting used to all the nested functions like string(input("")) vs. the .extensions like in stock_portfolio.items().
+# I also need to get better at being meticulous with the punctuation like commas and underscores.
+
+# What do you want to reinforce tomorrow?
+# I want to further build on my ability to nest functions within each other, as well as becoming even more comfortable with f-strings and the syntax.
