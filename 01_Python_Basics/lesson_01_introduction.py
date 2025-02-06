@@ -1,8 +1,7 @@
-# Week 1, Lesson 1: Python Basics
+# Lesson 1: Python Basics
 print("Hello World!\n")
 
 # Exercise 1: Print Statements and Variables
-
 # Task:
 
 # Print "Hello, Financial Engineering!" to the screen.

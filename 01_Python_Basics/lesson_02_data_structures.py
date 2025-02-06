@@ -1,4 +1,4 @@
-# Week 2: Data Structures in Python
+# Lesson 02: Data Structures in Python
 
 # Introductory Reading: Lists, Tuples, and Dictionaries
 
