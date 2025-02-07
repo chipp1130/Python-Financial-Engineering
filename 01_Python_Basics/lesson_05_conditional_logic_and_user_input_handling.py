@@ -85,3 +85,54 @@ except ValueError:
     print("Invalid entry. Please enter a valid number.") # This handles incorrect input without crashing
 
 # 2. Hands-On Coding Challenges
+
+# Challenge 1: Temperature Checker
+# Write a program that asks for a temperature and prints:
+# "It's freezing!" if below 0.
+# "It's warm outside." if between 1 and 25.
+# "It's hot!" if above 25.
+
+try:
+    temperature = int(input("What is the current temperature outside (In degrees Celsius)? "))
+    if temperature <= 0:
+        print("It's freezing outside!")
+    elif 1 <= temperature <= 25:
+        print("It's warm outside.")
+    else:
+        print("It's hot outside!")
+except ValueError:
+    print("Please enter a valid temperature in degrees Celsius.")
+
+# Challenge 2: FizzBuzz Game
+# If the number is divisible by both 3 and 5, print "FizzBuzz!"
+# If only divisible by 3, print "Fizz!"
+# If only divisible by 5, print "Buzz!"
+# Otherwise, print "Not a FizzBuzz number."
+
+try:
+    number = int(input("Please enter an integer!\n"))
+    if number % 3 == 0 and number % 5 == 0:
+        print(f"FizzBuzz! Your number, {number}, is divisible by both 3 and 5!")
+    elif number % 3 == 0:
+        print(f"Fizz! Your number, {number}, is divisible by 3!")
+    elif number % 5 == 0:
+        print(f"Buzz! Your number, {number}, is divisible by 5!")
+    else:
+        print(f"Your number, {number}, is not a FizzBuzz number. Try again!")
+except ValueError:
+    print("Please enter a valid integer to play FizzBuzz!")
+
+# Challenge 3: User Age Input (Handle Errors!)
+# If the input is not a number, print "Invalid input!"
+# If the number is less than 18, print "You cannot vote yet."
+# Otherwise, print "You can vote!"
+
+try:
+    user_age = int(input("Please enter your age!\n"))
+    if user_age <= 18:
+        print(f"Sorry! {user_age} year olds are not permitted to vote in your location.")
+    else:
+        print(f"{user_age} year olds are permitted to vote in your jurisdiction!")
+except ValueError:
+    print("Please enter a valid age to check voter eligibility!")
+
