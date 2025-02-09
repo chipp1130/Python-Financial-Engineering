@@ -1,6 +1,7 @@
 import pandas as pd
 import yfinance as yf
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Lesson 10: Introduction to Pandas for Financial Data
 
@@ -119,3 +120,45 @@ plt.show()
 #   Standard deviation (volatility) for each stock.
 #   Rolling 14-day moving average.
 
+new_tickers = ["AAPL", "MSFT"]
+six_months = yf.download(new_tickers, start="2023-06-30", end="2024-01-02")["Close"]
+print(six_months.head())
+
+print(six_months.isnull().sum())
+six_months.ffill(inplace=True)
+
+var = six_months.var() # Use Pandas' built-in .var function for a DataFrame
+stddev = six_months.std() # Or take the sqrt of var
+percent_stddev = (stddev / six_months.mean()) * 100
+
+print(f'Variance: ($) {var}\n')
+print(f'Standard Deviation: ($) {stddev}\n')
+print(f'Standard Deviation (%): {percent_stddev}\n')
+
+# Challenge 2: Compare Returns and Risk
+# Load TSLA, AMZN, and NVDA stock data for the past year.
+# Compute:
+#   Daily & annualized returns.
+#   Volatility (standard deviation).
+#   Plot the stock prices.
+
+tickers = ["TSLA", "AMZN", "NVDA"]
+data = yf.download(tickers, start="2023-01-01", end="2024-01-01")["Close"]
+print(data.isnull().sum())
+print('\n')
+data.ffill(inplace=True)
+daily_returns = data.pct_change().mean()
+annualized_returns = daily_returns * 252
+stddev_raw = data.std()
+stddev = (stddev_raw / data.mean()) * 100
+
+print(f'Annualized Returns (in %): {annualized_returns * 100}\n')
+print(f'Standard Deviation (in %): {stddev}\n')
+
+plt.figure(figsize=(12,6))
+data.plot()
+plt.title("Stock Price Performance Over the Last Year:")
+plt.xlabel("Date:")
+plt.ylabel("Stock Price: ($USD)")
+plt.legend(tickers)
+plt.show()
