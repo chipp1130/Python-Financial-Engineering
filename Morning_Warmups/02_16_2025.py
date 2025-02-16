@@ -61,3 +61,19 @@ class Dog(Animal):
         return "Woof!"
 dog = Dog("Buddy")
 print(dog.speak())
+
+# Coding Exercise:
+# Write a function that counts how many unique characters are in a given string.
+# unique_chars("hello")  # Output: 4  (h, e, l, o → 'l' appears twice but is counted once)
+# unique_chars("banana")  # Output: 3  (b, a, n)
+# unique_chars("abcdef")  # Output: 6  (All letters are unique)
+# unique_chars("")  # Output: 0  (Empty string)
+
+# 📌Hints:
+# ✔ Use a set (since sets only store unique elements).
+# ✔ Think about how to handle an empty string.
+
+def unique_characters(word):
+    return len(set(word))
+
+print(unique_characters("Connor"))
